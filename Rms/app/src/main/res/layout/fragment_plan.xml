@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.PlanFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Source"
+        android:textStyle="bold"/>
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:id="@+id/planAutoSrc"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Source Stop"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="50dp"
+        android:text="Destination"/>
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:id="@+id/planAutoDst"
+        android:layout_height="wrap_content"
+        android:hint="Destination Stop"/>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:id="@+id/planButtonFavorite"
+            android:drawableLeft="@drawable/icon_favorite"
+            android:text="Mark Favourite"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_media_play"
+            android:id="@+id/planButtonGo"
+            android:textSize="20dp"
+            android:layout_gravity="right"
+            android:text="GO"/>
+    </LinearLayout>
+
+
+</LinearLayout>
