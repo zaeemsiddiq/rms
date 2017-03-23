@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity implements SyncServiceComple
     FrameLayout mainFrame;
     Fragment currentFragment;
 
+    static final int REQUEST_PERMISSION_CODE = 100;
+
     Stop src;   // this is the src stop returned from Plan Fragment
     Stop dst;   // this is the dst stop returned from Plan Fragment
     List<RouteStop> routeStops; // planned stops list that the bus will iterate sequentially
@@ -136,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements SyncServiceComple
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         fullScreen();
+        handlePermissions();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -149,8 +152,24 @@ public class MainActivity extends AppCompatActivity implements SyncServiceComple
         } else {
             startFireBaseSync();
         }
-
     }
+
+    private void handlePermissions() {
+        if (Build.VERSION.SDK_INT> Build.VERSION_CODES.LOLLIPOP_MR1) {  // current version is Marshmallow, which requires permissions on runtime
+            requestPermissions(Constants.permissions, REQUEST_PERMISSION_CODE);
+        }
+    }
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_PERMISSION_CODE:
+                boolean permsAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+        }
+    }
+
     private void showDialog() {
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override

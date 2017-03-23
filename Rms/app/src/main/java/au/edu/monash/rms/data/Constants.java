@@ -49,4 +49,8 @@ public class Constants {
     public static int FRAGMENT_INFORMATION = 2;
     public static int FRAGMENT_FAVORITE = 3;
     public static int FRAGMENT_SETTINGS = 4;
+
+    public static String[] permissions = {
+            "android.permission.ACCESS_FINE_LOCATION"
+    };
 }
